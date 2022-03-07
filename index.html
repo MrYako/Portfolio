@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+        <meta name="viewport" context="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+    </head>
+    <body>
+        <div class="container"></div>
+        <style>
+            * {margin:0;padding:0;}
+            .container{width:100%; height: 100vh;}
+        </style>
+        <script src = "libs/three.js"></script>
+        <script type="module">
+                import * as THREE from '/build/three.module.js';
+                import {OrbitControls} from '/examples/jsm/controls/OrbitControls.js';
+
+            let scene;
+            let camera;
+            let render;
+
+
+            function init(){
+
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 5, 0);
+controls.update();
+                /*
+                //WebGL Error
+                if ( WebGL.isWebGLAvailable() ) {
+                    // Initiate function or other initializations here
+                    animate();
+                } else {
+                    const warning = WebGL.getWebGLErrorMessage();
+                    document.getElementById( 'container' ).appendChild( warning );
+                }
+                */
+
+                let container = document.querySelector('.container');
+
+                //Scene
+                scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xffffff);
+
+                //Camera
+                const fov = 45;
+                const aspect = 2;  // the canvas default
+                const near = 0.1;
+                const far = 100;
+                const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                camera.position.set(0, 10, 20);
+                //camera = new THREE.PerspectiveCamera(75, window.innerWidth/ window.innerHeight, 0.1, 1000);
+
+                //render
+                renderer = new THREE.WebGLRenderer({antialias: true});
+                renderer.setSize(window.innerWidth,innerHeight);
+                container.appendChild(renderer.domElement);
+            
+                //Geometry
+                const geometry = new THREE.BoxGeometry();
+                const material = new THREE.MeshBasicMaterial ( {color: 0x00afff} );
+                const cube = new THREE.Mesh(geometry, material);
+                scene.add(cube);
+
+                // camera.position.z = 3;
+                // camera.position.x = 1;
+                // cube.position.z = 1;
+                // cube.position.x = 0.5;
+                // camera.position.set(10, 2, 10);
+                camera.lookAt(0,0,0);
+
+                // const points = [];
+                // points.push( new THREE.Vector3( - 10, 0, 0 ) );
+                // points.push( new THREE.Vector3( 0, 10, 0 ) );
+                // points.push( new THREE.Vector3( 10, 0, 0 ) );
+
+                // const geometry2 = new THREE.BufferGeometry().setFromPoints( points );
+                // const line = new THREE.Line( geometry2, material );
+                // scene.add(line);
+
+                function animate(){
+                    requestAnimationFrame(animate);
+                    renderer.render(scene, camera);
+                };
+
+                animate();
+
+            }
+
+            init();
+
+        </script>
+    </body>
+</html>
