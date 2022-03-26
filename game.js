@@ -1,7 +1,7 @@
-import * as THREE from 'https://github.com/MrYako/Portfolio//build/three.module.js';
-import {InputManager} from 'https://github.com/MrYako/Portfolio/InputManager.js';
-import {GLTFLoader} from 'https://github.com/MrYako/Portfolio/tree/main/examples/jsm/loaders/GLTFLoader.js';
-import * as SkeletonUtils from 'https://github.com/MrYako/Portfolio/tree/main/examples/jsm/utils/SkeletonUtils.js';
+import * as THREE from '/build/three.module.js';
+import {InputManager} from 'InputManager.js';
+import {GLTFLoader} from '/tree/main/examples/jsm/loaders/GLTFLoader.js';
+import * as SkeletonUtils from '/tree/main/examples/jsm/utils/SkeletonUtils.js';
 
 function main() {
   const canvas = document.querySelector('#c');
