@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import {InputManager} from '../InputManager.js';
-import {GLTFLoader} from '/examples/jsm/loaders/GLTFLoader.js';
-import * as SkeletonUtils from '/examples/jsm/utils/SkeletonUtils.js';
+import {InputManager} from 'InputManager';
+import {GLTFLoader} from 'GLTFLoader';
+import * as SkeletonUtils from 'SkeletonUtils';
 
 
 function main() {
